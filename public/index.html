@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+  
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
+</iframe>
+
+</head>
+<body>
+
+
+    <header>
+        <div class="container">
+            <h1>Personal Portfolio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Home</a></li>
+                    <li><a href="#about-me">Skills</a></li>
+                    <li><a href="#portafolio">Portfolio</a></li>
+                    <li><a href="#contacto">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio">
+        <div class="container">
+            <h2 id="welcome-text">Welcome</h2>
+            <p id="typed-text">Welcome to my creative portfolio! I'm passionate about blending technology with artistry to craft 
+                captivating digital experiences. With a keen eye for detail and a love for innovation, I strive to push the
+                 boundaries of web development. Explore my work and discover how I bring ideas to life in the digital realm</p>
+        </div>
+    </section>
+
+    <section id="about-me">
+        <div class="container">
+            <h2>Skills</h2>
+            <p>I am a creative programmer who enjoys combining functionality with design to create unique and appealing experiences.</p>
+        </div>
+        
+        <button class="button button-blue">JavaScript</button>
+        <button class="button button-green">HTML</button>
+        <button class="button button-red">CSS</button>
+    </section>
+
+    <section id="portafolio">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <div class="project" onclick="showProjectDetails('proyecto1')">
+                <img src="images/kcna;sc.png" alt="Project 1">
+                <div class="project-overlay">
+                    <h3>Project 1</h3>
+                    <p>Weather website, where you can visit and check the wind and humidity conditions of any city in the world. </p>
+                </div>
+            </div>
+            <div class="project" onclick="showProjectDetails('proyecto2')">
+                <img src="images/acas.png" alt="Project 2">
+                <div class="project-overlay">
+                    <h3>Project 2</h3>
+                    <p>Clothing store website with 4 different brands and plenty of clothing types.</p>
+                </div>
+            </div>
+            <div class="project" onclick="showProjectDetails('proyecto2')">
+                <img src="images/Untitled.png" alt="Project 3">
+                <div class="project-overlay">
+                    <h3>Project 3</h3>
+                    <p>Movie website with a contact page and plenty of details.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Don't hesitate to contact me to discuss interesting projects. I'm here to collaborate!</p>
+            <p>Phone: 778 237 0974</p>
+            <div id="email-container">
+                <p id="email">julius27egd@gmail.com</p>
+                <form id="contact-form" method="POST" action="enviar_email.php">
+                    <label for="nombre">Name:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="mensaje">Message:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+                    
+                    <button type="submit">Send message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="redes-sociales">
+        <div class="container">
+            
+            <p class="animated-text">Social Media</p>
+            <div class="social-buttons">
+               
+                <a href="https://www.linkedin.com/" target="_blank" class="social-button">LinkedIn</a>
+                <a href="https://www.github.com/" target="_blank" class="social-button">Github</a>
+                <a href="https://www.instagram.com/" target="_blank" class="social-button">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showProjectDetails(projectId) {
+           
+            console.log('Mostrando detalles del proyecto con ID: ' + projectId);
+        }
+    </script>
+
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+
+        
+        var nombre = document.getElementById("nombre").value;
+        var email = document.getElementById("email").value;
+        var mensaje = document.getElementById("mensaje").value;
+
+       
+        var body = "Nombre: " + nombre + "\n";
+        body += "Correo electrónico: " + email + "\n";
+        body += "Mensaje: " + mensaje;
+
+        
+        var mailtoLink = "mailto:tu_correo_electronico@example.com" +
+                         "?subject=Mensaje de contacto" +
+                         "&body=" + encodeURIComponent(body);
+
+        
+        window.location.href = mailtoLink;
+    });
+</script>
+
+</body>
+</html>
